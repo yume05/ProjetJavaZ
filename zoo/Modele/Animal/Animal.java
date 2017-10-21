@@ -74,11 +74,11 @@ public abstract class Animal{
 	 */
 	protected abstract void mangerVrai();
 	
-	/**
+	/*/**
 	 * protected abstract void crier();
 	 * Methode abstraite protegee permettant à l'animal de crier
 	 */
-	protected abstract void crier();
+	//protected abstract void crier();*/
 	
 	/**
 	 * protected abstract void accouplement(Animal a1, Animal a2);
@@ -227,7 +227,7 @@ public abstract class Animal{
 		}else{
 			sexeString = "mâle";
 		}
-		String str = "Animal de la "+this.getClass() + "; sexe = "+sexeString+"; nom ="+this.getNom()+"; age= "+this.getAge()+" ans; pèse ="+this.getPoids()+"kg; taille= "+this.getTaille()+"cm.";
+		String str = "Nom ="+this.getNom()+"; sexe = "+sexeString+"; age= "+this.getAge()+" ans; pèse ="+this.getPoids()+"kg; taille= "+this.getTaille()+"cm.";
 		return str;
 	}
 
@@ -298,5 +298,12 @@ public abstract class Animal{
 		}
 	}
 	
+	/**
+	 * public void crier()
+	 * Méthode permettant de faire crier l'animal
+	 */
+	public void crier(){
+		crier();
+	}
 
 }
