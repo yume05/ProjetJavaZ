@@ -294,7 +294,7 @@ public abstract class Animal{
 		}else if(this.indiceFaim == false){
 			mangerVrai();
 			this.indiceFaim = true;
-			System.out.println("Nous avons bien ete nourris !");
+			
 		}
 	}
 	

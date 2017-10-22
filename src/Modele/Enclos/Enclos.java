@@ -180,7 +180,7 @@ public abstract class Enclos<T extends Animal> {
 	 */
 	public void randomAnimaux(){
 		for(Animal a : this.listeAnimaux){
-			a.setIndiceFaim(a.getRandomBoolean());
+			a.setIndiceFaim(false);
 			a.setIndiceSante(a.getRandomBoolean());
 			a.setIndiceSommeil(a.getRandomBoolean());
 		}
@@ -225,9 +225,14 @@ public abstract class Enclos<T extends Animal> {
 	 * Methode permettant de nourir les animaux de l'enclos
 	 */
 	public void nourirAnimaux(){
-		for(Animal a : this.listeAnimaux){
-			a.manger();
+		if(this.listeAnimaux.size() >0){
+			for(Animal a : this.listeAnimaux){
+				a.manger();
+			}
+		}else{
+			System.out.println("Aucun animal dans cet enclos.");
 		}
+		
 	}
 	
 	/**
@@ -246,13 +251,101 @@ public abstract class Enclos<T extends Animal> {
 	 public abstract void salirEnclos();
 	
 	 /**
+		 * public void attenteCreation(String action)
+		 * Methode permettant d'afficher l'attente en fonction de l'action
+		 * @param action
+		 */
+		public void attenteEntretien(String action){
+			if(action.equals("E")){
+				System.out.println("Transfère des animaux...");
+		         try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		         System.out.println("Ballayage des feuilles mortes et des excréments...");
+		         try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		         System.out.println("Rajout de paille....");
+		         try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		         System.out.println("....");
+		         try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			}else if(action.equals("A1")){
+				System.out.println("Ajout de l'eau manquante..");
+		         try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		         System.out.println("Traitement de l'eau....");
+		         try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		         System.out.println("....");
+		         try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			}else if(action.equals("A2")){
+				System.out.println("Test de salinité..");
+		         try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		         System.out.println("Rajout de sel....");
+		         try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		         System.out.println("....");
+		         try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			} else if (action.equals("V")){
+				System.out.println("Réparation du toit...");
+		         try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			}
+		}
+	 /**
 	 * public void entretenirEnclos()
 	 * Methode permettant d'entretenir l'enclos
 	 */
 	public void entretenirEnclos(){
 		if(this.getNbrAnimaux() > 0){
 			if(this.getProprete() == PROPRETE3){
-				System.out.println("Il faut entretenir l'enclos !");
 				Enclos<Animal> temporaireEnclos = this.creerEnclosTemporaire();
 				listeAnimauxTemporaire =  this.listeAnimaux ;
 				//On transfere les animaux
@@ -261,9 +354,9 @@ public abstract class Enclos<T extends Animal> {
 				}
 				this.setNbrAnimaux(0);
 				this.listeAnimaux.clear();
-				
 				this.setProprete(PROPRETE1);
-				System.out.println("Enclos bien nettoye !");
+				this.attenteEntretien("E");
+				System.out.println("Enclos bien nettoyé !");
 				
 				this.listeAnimaux = listeAnimauxTemporaire;
 				//On retransfère les animaux
@@ -272,7 +365,6 @@ public abstract class Enclos<T extends Animal> {
 				}
 				listeAnimauxTemporaire.clear();
 			}else if(this.getProprete() == PROPRETE2){
-				System.out.println("Il faut entretenir l'enclos !");
 				Enclos<Animal> temporaireEnclos = this.creerEnclosTemporaire();
 				listeAnimauxTemporaire =  this.listeAnimaux;
 				//On transfere les animaux
@@ -283,7 +375,8 @@ public abstract class Enclos<T extends Animal> {
 				this.listeAnimaux.clear();
 				
 				this.setProprete(PROPRETE1);
-				System.out.println("Enclos bien nettoye !");
+				this.attenteEntretien("E");
+				System.out.println("Enclos bien nettoyé !");
 				
 				this.listeAnimaux = listeAnimauxTemporaire;
 				//On retransfère les animaux

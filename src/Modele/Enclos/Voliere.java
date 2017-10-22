@@ -82,10 +82,11 @@ public class Voliere <T extends Animal & Volant> extends Enclos<T>{
 	 * Methode permettant d'entretenir un enclos
 	 */
 	public void entretenirEnclos(){
-		super.entretenirEnclos();
 		if(!this.getEtatToit()){
+			this.attenteEntretien("V");
 			this.setEtatToit(true);
 		}
+		super.entretenirEnclos();
 	}
 	
 	/**

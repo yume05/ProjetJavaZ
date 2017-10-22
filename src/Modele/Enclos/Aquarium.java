@@ -115,16 +115,14 @@ public class Aquarium <T extends Animal & Marin> extends Enclos<T>{
 	public void entretenirEnclos(){
 		System.out.println("Niveau de l'eau "+this.getHauteurEau()+" mètres de profondeur.");
 		if(this.getHauteurEau() < this.getProfondeur()){
-			System.out.println("Ajout de l'eau manquante..");
-			System.out.println("Bloup...");
 			this.setHauteurEau(this.getProfondeur());
-			System.out.println("Le niveau de l'eau à bien ete corrige !");
+			this.attenteEntretien("A1");
+			System.out.println("Le niveau de l'eau à bien été corrige !");
 		}
 		System.out.println("Le taux de salinite est de "+this.getTauxSalinite() +"%");
 		if(this.getTauxSalinite() < 100){
-			System.out.println("Et on rajoute du sel !");
-			System.out.println("Bloup...");
 			this.setTauxSalinite(100);
+			this.attenteEntretien("A2");
 			System.out.println("Tout est ok !");
 		}
 	}
