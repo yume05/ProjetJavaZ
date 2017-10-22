@@ -312,14 +312,11 @@ public abstract class Enclos<T extends Animal> {
 		String enclos1 = " ";
 		for(Animal b : a){
 			enclos1 = b.getClass().toString();	
-			System.out.println(enclos1);
 		}
 		String[]split1 = enclos1.split (" "); 
 		String split2 = split1[1];
-		System.out.println(split2);
 		String[]split3 = split2.split ("\\."); 
-		String split4 = split3[3];
-		System.out.println(split4);
+		String split4 = split3[2];
 		return split4;
 		
 		
